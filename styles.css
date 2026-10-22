@@ -54,3 +54,6 @@ footer{background:var(--navy);color:#8c9bb0;font-size:.85rem;padding:40px 0 30px
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 .btn{white-space:nowrap}.thumb{color:#fff;text-decoration:none;display:block}.thumb .cap{color:#fff}
 @media(max-width:420px){.btn.book:not(.sm){width:100%;white-space:normal}.ctas .btn{width:100%}}
+.tvrow{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:24px 2px 12px;-webkit-overflow-scrolling:touch}
+.tvrow>*{flex:0 0 72%;max-width:300px;scroll-snap-align:start}@media(min-width:900px){.tvrow>*{flex:1 1 0}}
+.vid.v{aspect-ratio:9/16}.tv .vmeta{font-size:.85rem}.tvrow .card.ph{display:flex;flex-direction:column;justify-content:center}
