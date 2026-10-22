@@ -57,3 +57,6 @@ footer{background:var(--navy);color:#8c9bb0;font-size:.85rem;padding:40px 0 30px
 .tvrow{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:24px 2px 12px;-webkit-overflow-scrolling:touch}
 .tvrow>*{flex:0 0 72%;max-width:300px;scroll-snap-align:start}@media(min-width:900px){.tvrow>*{flex:1 1 0}}
 .vid.v{aspect-ratio:9/16}.tv .vmeta{font-size:.85rem}.tvrow .card.ph{display:flex;flex-direction:column;justify-content:center}
+.about-solo{max-width:760px;margin:0 auto;text-align:center}.about-solo p{margin-left:auto;margin-right:auto}
+.about-solo .stats{justify-content:center;gap:48px;border-top:1px solid #2a3a50;border-bottom:1px solid #2a3a50;padding:22px 0}
+.about-solo h2:after{content:"";display:block;width:56px;height:2px;background:var(--accent);margin:18px auto 0}
