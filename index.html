@@ -122,7 +122,8 @@ section.block .head { display: grid; gap: 12px; margin-bottom: 36px; }
 
 /* team */
 .team { display: grid; gap: 20px; max-width: 760px; }
-.member { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 28px; align-items: start; padding-top: 22px; border-top: 2px solid var(--ink); }
+#team .head { margin-bottom: 20px; }
+.member { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 28px; align-items: start; }
 .member-text { display: grid; gap: 10px; align-content: start; min-width: 0; }
 .headshot { width: 100%; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 20%; border-radius: 10px; display: block; background: var(--brand-bg); }
 .member h3 { font-size: 2.1rem; }
@@ -337,8 +338,6 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">Our team</p>
-        <h2>A sports specialist on every visit</h2>
-        <p class="lede">You see the same licensed clinician at every visit, for the whole hour.</p>
       </div>
       <div class="team">
         <article class="member">
