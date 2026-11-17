@@ -1,4 +1,5 @@
 import html
+import os
 BOOK="https://askangrydoc.com/"
 def fv(n):
     return f"{n/1000:.1f}K".replace(".0K","K") if n>=1000 else str(n)
@@ -62,9 +63,9 @@ def tsec(ids):
     return f'<section class="sec alt"><div class="c"><span class="eyebrow">Real patient stories</span><h2>Mga kuwento ng pasyente</h2><p class="lead">Mga patient video mula sa YouTube channel ni Dr. Ronald, karamihan mula sa panahon niya sa ActiveLife clinics.</p><div class="tvrow">{tvids(ids)}</div><p class="vmeta">Patient videos as posted on the channel; results vary per person.</p></div></section>'
 COMMON_FAQ=[("Magkano ang consult at gaano katagal?","₱500 para sa 15-minutong online consult kay Dr. Ronald sa Zoom. Pipili ka ng slot sa booking page."),("May libre bang option?","Oo — may libreng Staff Screening Line sa booking page para sa mabilisang tanong bago ka mag-book ng doctor consult."),("Paano ako magbabayad?","Sundin lang ang instructions sa booking page. Ang Zoom link ay ibibigay kapag confirmed na ang bayad."),("Puwede ba ito kapalit ng hospital o ER?","Hindi. Kung may red-flag symptoms ka (tingnan sa ibaba), pumunta agad sa ER.")]
 
-def pic(n,alt,w,h,cls="",eager=False):
+def pic(n,alt,w,h,cls="",eager=False,prefix="img/"):
     ld='fetchpriority="high"' if eager else 'loading="lazy"'
-    return f'<picture class="{cls}"><source srcset="img/{n}.webp" type="image/webp"><img src="img/{n}.jpg" alt="{alt}" width="{w}" height="{h}" {ld} decoding="async"></picture>'
+    return f'<picture class="{cls}"><source srcset="{prefix}{n}.webp" type="image/webp"><img src="{prefix}{n}.jpg" alt="{alt}" width="{w}" height="{h}" {ld} decoding="async"></picture>'
 HS_ALT="Dr. Ronald Samaniego, PT, DPT — The Angry Doc — professional headshot in navy suit"
 ST_ALT="Dr. Ronald Samaniego in The Angry Doc studio, in front of the illuminated The Angry Doc sign with red and blue neon lights"
 
@@ -133,16 +134,17 @@ def page(p):
 <script src="funnel.js" defer></script></body></html>'''
 
 for p in P: open(p["slug"]+".html","w").write(page(p))
-cards="".join(f'<a class="card rv" href="{p["slug"]}.html"><img src="https://i.ytimg.com/vi/{p["vids"][0][0]}/hqdefault.jpg" alt="" loading="lazy"><span class="eyebrow">{p["tl"]}</span><h3>{p["hook"].replace("<em>","").replace("</em>","")}</h3><p class="vmeta">Alamin pa →</p></a>' for p in P)
-open("index.html","w").write(f'''<!doctype html><html lang="fil"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Angry Doc — Online PT Consult | Dr. Ronald Samaniego, DPT</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+cards="".join(f'<a class="card rv" href="../{p["slug"]}.html"><img src="https://i.ytimg.com/vi/{p["vids"][0][0]}/hqdefault.jpg" alt="" loading="lazy"><span class="eyebrow">{p["tl"]}</span><h3>{p["hook"].replace("<em>","").replace("</em>","")}</h3><p class="vmeta">Alamin pa →</p></a>' for p in P)
+os.makedirs("funnels", exist_ok=True)
+open("funnels/index.html","w").write(f'''<!doctype html><html lang="fil"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Angry Doc — Online PT Consult | Dr. Ronald Samaniego, DPT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="../styles.css">
 <!-- Meta Pixel: paste your Meta Pixel base code here (replace YOUR_PIXEL_ID). --></head><body>
 <nav class="top"><div class="c"><a class="brand" href="index.html">The Angry Doc<small>Athletic Therapy Center · Bacoor</small></a><a class="btn sm book" href="{BOOK}">Book Consult</a></div></nav>
-<header class="hero"><div class="c grid"><div><span class="eyebrow">Online Physical Therapy Consult</span><h1>Sakit ng katawan? <em>Alamin ang totoo.</em></h1><p class="sub">15-minutong Zoom consult kay Dr. Ronald Samaniego, Doctor of Physical Therapy — ₱500. Pumili ng kondisyon mo para magsimula.</p><div class="ctas"><a class="btn book" href="{BOOK}">Book Online Consult →</a></div></div><figure class="doc-hero rv">{pic("dr-ronald-headshot",HS_ALT,835,1000,"",True)}<figcaption><b>Dr. Ronald Samaniego, PT, DPT</b><span>Doctor of Physical Therapy · The Angry Doc</span></figcaption></figure></div></header>
-<section class="sec dark"><div class="c about about-ph"><figure class="studio rv">{pic("dr-ronald-studio",ST_ALT,1000,914)}<figcaption>As seen on <b>The Angry Doc</b></figcaption></figure><div class="rv"><span class="eyebrow">Meet your doctor</span><h2>Dr. Ronald Samaniego, PT, DPT</h2><p>Doctor of Physical Therapy na nag-practice sa Chicago, USA. Siya ang \u201cThe Angry Doc\u201d — diretso at walang-paligoy na paliwanag tungkol sa sakit ng katawan. Online consults sa buong Pilipinas mula sa Athletic Therapy Center, Bacoor.</p><div class="stats"><div><b>19.3K</b><span>YouTube subscribers</span></div><div><b>200+</b><span>long-form videos</span></div></div></div></div></section>
+<header class="hero"><div class="c grid"><div><span class="eyebrow">Online Physical Therapy Consult</span><h1>Sakit ng katawan? <em>Alamin ang totoo.</em></h1><p class="sub">15-minutong Zoom consult kay Dr. Ronald Samaniego, Doctor of Physical Therapy — ₱500. Pumili ng kondisyon mo para magsimula.</p><div class="ctas"><a class="btn book" href="{BOOK}">Book Online Consult →</a></div></div><figure class="doc-hero rv">{pic("dr-ronald-headshot",HS_ALT,835,1000,"",True,prefix="../img/")}<figcaption><b>Dr. Ronald Samaniego, PT, DPT</b><span>Doctor of Physical Therapy · The Angry Doc</span></figcaption></figure></div></header>
+<section class="sec dark"><div class="c about about-ph"><figure class="studio rv">{pic("dr-ronald-studio",ST_ALT,1000,914,prefix="../img/")}<figcaption>As seen on <b>The Angry Doc</b></figcaption></figure><div class="rv"><span class="eyebrow">Meet your doctor</span><h2>Dr. Ronald Samaniego, PT, DPT</h2><p>Doctor of Physical Therapy na nag-practice sa Chicago, USA. Siya ang \u201cThe Angry Doc\u201d — diretso at walang-paligoy na paliwanag tungkol sa sakit ng katawan. Online consults sa buong Pilipinas mula sa Athletic Therapy Center, Bacoor.</p><div class="stats"><div><b>19.3K</b><span>YouTube subscribers</span></div><div><b>200+</b><span>long-form videos</span></div></div></div></div></section>
 <section class="sec"><div class="c"><div class="cards c3 hub">{cards}</div></div></section>
 {tsec(TMAP["hub"])}
 {optin('index')}
 <footer><div class="c">© 2026 The Angry Doc · Educational content only — not medical advice.</div></footer>
 <div class="sticky"><div><b>Online consult</b><br>₱500 · 15 min · Zoom</div><a class="btn book" href="{BOOK}">Book Now</a></div>
-<script src="funnel.js" defer></script></body></html>''')
+<script src="../funnel.js" defer></script></body></html>''')
