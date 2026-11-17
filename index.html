@@ -179,6 +179,7 @@ section.block .head { display: grid; gap: 12px; margin-bottom: 36px; }
 
 /* contact */
 .contact .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; }
+.consult-cards { display: grid; gap: 16px; min-width: 0; }
 .info { display: grid; gap: 22px; min-width: 0; }
 .info dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; margin: 0; }
 .info dt { font: 500 .78rem/1.6 var(--mono); color: var(--muted); text-transform: uppercase; }
@@ -463,19 +464,27 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     <div class="wrap">
       <div class="info">
         <p class="eyebrow">Book a consult</p>
-        <h2>Book a ₱500 online consult</h2>
-        <p class="lede">A 12-minute Zoom consult with Dr. Ron. Pick a slot on our booking page and pay with GCash or Maya.</p>
+        <h2>Book a consult</h2>
+        <p class="lede">A ₱500 online Zoom consult, or a ₱1,500 in-clinic visit. Choose the option that fits.</p>
         <dl>
           <dt>Hours</dt><dd>By appointment</dd>
           <dt>First visit</dt><dd>60 minutes. Wear clothes you can move in and bring any imaging reports.</dd>
           <dt>Referral</dt><dd>Not required to start physical therapy.</dd>
         </dl>
       </div>
-      <div class="panel">
-        <h3>Online consult</h3>
-        <p>₱500 · 12 minutes on Zoom · Monday to Saturday, 5:30–8:30 PM Manila time.</p>
-        <a class="btn btn-primary" href="https://askangrydoc.com/book">Book a ₱500 online consult</a>
-        <p class="note">Online consults are for advice and triage. If this is an emergency, call 911.</p>
+      <div class="consult-cards">
+        <div class="panel">
+          <h3>Online consult</h3>
+          <p>₱500 · 12 minutes on Zoom · Monday to Saturday, 5:30–8:30 PM Manila time.</p>
+          <a class="btn btn-primary" href="https://askangrydoc.com/book">Book a ₱500 online consult</a>
+          <p class="note">Online consults are for advice and triage. If this is an emergency, call 911.</p>
+        </div>
+        <div class="panel">
+          <h3>In-clinic consult</h3>
+          <p>₱1,500 · 60-minute one-on-one visit · By appointment at any of our clinics.</p>
+          <a class="btn btn-primary" href="#locations">See our locations</a>
+          <p class="note">Call or text to schedule: <a href="tel:+639953313145">Globe +63 995 331 3145</a> · <a href="tel:+639606963675">Smart +63 960 696 3675</a></p>
+        </div>
       </div>
     </div>
   </section>
