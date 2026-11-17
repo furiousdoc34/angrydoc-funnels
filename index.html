@@ -163,6 +163,20 @@ section.block .head { display: grid; gap: 12px; margin-bottom: 36px; }
 .member p { color: var(--muted); font-size: .98rem; }
 .pay { margin-top: 36px; font-weight: 600; font-size: 1.05rem; }
 
+
+/* locations */
+.loc-region { display: grid; gap: 20px; }
+.loc-region + .loc-region { margin-top: 40px; }
+.loc-region-head { display: grid; gap: 10px; }
+.loc-region-head h3 { font-size: 1.7rem; }
+.loc-phones { display: flex; flex-wrap: wrap; gap: 6px 20px; color: var(--muted); font-size: .98rem; }
+.loc-phones a { font-weight: 600; }
+.loc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.loc-card { background: var(--surface); padding: 26px; display: grid; gap: 10px; align-content: start; }
+.loc-card h3 { font-size: 1.35rem; }
+.loc-card p { color: var(--muted); font-size: .98rem; }
+.loc-dir { font-weight: 600; font-size: .92rem; }
+
 /* contact */
 .contact .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; }
 .info { display: grid; gap: 22px; min-width: 0; }
@@ -200,7 +214,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 @media (max-width: 600px) {
   body { font-size: 16px; }
   .wrap { padding-inline: 16px; }
-  .services, .steps, .row2 { grid-template-columns: 1fr; }
+  .services, .steps, .row2, .loc-grid { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr 1fr; }
   section.block { padding-block: 52px; }
   nav.links { gap: 4px 14px; }
@@ -218,6 +232,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       <a href="#services" data-site-link>Services</a>
       <a href="#approach" data-site-link>Approach</a>
       <a href="#team" data-site-link>Our Team</a>
+      <a href="#locations" data-site-link>Locations</a>
       <a href="#book" data-site-link>Book a Consult</a>
     </nav>
   </div>
@@ -365,7 +380,85 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     </div>
   </section>
 
-  <!-- 5. Book a consult -->
+  <!-- 5. Locations -->
+  <section class="block" id="locations">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Locations</p>
+        <h2>Find a clinic</h2>
+      </div>
+      <div class="loc-region">
+        <div class="loc-region-head">
+          <h3>Luzon &amp; Bicol</h3>
+          <p class="loc-phones">Call or text to schedule: <a href="tel:+639953313145">Globe +63 995 331 3145</a> <a href="tel:+639606963675">Smart +63 960 696 3675</a></p>
+        </div>
+        <div class="loc-grid">
+        <article class="loc-card">
+          <h3>Ortigas</h3>
+          <p>City &amp; Land Megaplaza, Unit 1102, Ortigas, Pasig</p>
+          <a class="loc-dir" href="https://www.google.com/maps/search/?api=1&amp;query=City%20%26%20Land%20Megaplaza%2C%20Unit%201102%2C%20Ortigas%2C%20Pasig" target="_blank" rel="noopener">Get directions</a>
+        </article>
+        <article class="loc-card">
+          <h3>Antipolo</h3>
+          <p>1st Floor, KBT Building, Lot 16, Block 1 Emerald Hills, Barangay Santa Cruz, Antipolo City, Rizal</p>
+          <a class="loc-dir" href="https://www.google.com/maps/search/?api=1&amp;query=KBT%20Building%2C%20Lot%2016%2C%20Block%201%20Emerald%20Hills%2C%20Barangay%20Santa%20Cruz%2C%20Antipolo%20City%2C%20Rizal" target="_blank" rel="noopener">Get directions</a>
+        </article>
+        <article class="loc-card">
+          <h3>Binangonan</h3>
+          <p>Beside Lakeview Hospital, Tagpos, Binangonan, Rizal</p>
+          <a class="loc-dir" href="https://www.google.com/maps/search/?api=1&amp;query=Lakeview%20Hospital%2C%20Tagpos%2C%20Binangonan%2C%20Rizal" target="_blank" rel="noopener">Get directions</a>
+        </article>
+        <article class="loc-card">
+          <h3>Bacoor (formerly Master Label)</h3>
+          <p>Block 43 Lot 2, Kamagong St., Phase 3 Central Camella Springville Molino 3, Bacoor, Cavite</p>
+          <a class="loc-dir" href="https://www.google.com/maps/search/?api=1&amp;query=Block%2043%20Lot%202%2C%20Kamagong%20St.%2C%20Phase%203%20Central%20Camella%20Springville%20Molino%203%2C%20Bacoor%2C%20Cavite" target="_blank" rel="noopener">Get directions</a>
+        </article>
+        <article class="loc-card">
+          <h3>Bocaue, Bulacan</h3>
+          <p>Near Petron Batia, formerly RGC Construction Building. Just type ‘Petron Batia’ on Waze</p>
+          <a class="loc-dir" href="https://www.google.com/maps/search/?api=1&amp;query=Petron%20Batia%2C%20Bocaue%2C%20Bulacan" target="_blank" rel="noopener">Get directions</a>
+        </article>
+        <article class="loc-card">
+          <h3>Banawe, QC</h3>
+          <p>888 Banawe St, cor. G. Roxas St., Manresa, QC, Unit 2C (2nd Floor)</p>
+          <a class="loc-dir" href="https://www.google.com/maps/search/?api=1&amp;query=888%20Banawe%20St%20corner%20G.%20Roxas%20St%2C%20Manresa%2C%20Quezon%20City" target="_blank" rel="noopener">Get directions</a>
+        </article>
+        <article class="loc-card">
+          <h3>Legazpi, Albay</h3>
+          <p>Tower Building 1 Ground Floor, Unit 1, Landco Business Park, Legazpi City. Tapat ng Gaisano, tabi ng Southstar Pharmacy</p>
+          <a class="loc-dir" href="https://www.google.com/maps/search/?api=1&amp;query=Tower%20Building%201%2C%20Unit%201%2C%20Landco%20Business%20Park%2C%20Legazpi%20City" target="_blank" rel="noopener">Get directions</a>
+        </article>
+        <article class="loc-card">
+          <h3>Naga, Cam Sur</h3>
+          <p>Chrisleen Building Ground Floor, Acacia St., Liboton, Naga</p>
+          <a class="loc-dir" href="https://www.google.com/maps/search/?api=1&amp;query=Chrisleen%20Building%2C%20Acacia%20St.%2C%20Liboton%2C%20Naga" target="_blank" rel="noopener">Get directions</a>
+        </article>
+        </div>
+      </div>
+      <div class="loc-region">
+        <div class="loc-region-head">
+          <h3>Mindanao</h3>
+        </div>
+        <div class="loc-grid">
+        <article class="loc-card">
+          <h3>Ipil, Zamboanga Sibugay</h3>
+          <p>Ground floor RK Building, Purok Mauswagon Lower Taway, Ipil, beside Kaprehh Cafe.</p>
+          <p>Open Sunday–Friday, 9:00 AM–6:00 PM (cut-off 5:00 PM).</p>
+          <p>Globe <a href="tel:+639670880632">0967-0880-632</a> · Smart <a href="tel:+639519424768">0951-9424-768</a></p>
+          <a class="loc-dir" href="https://www.google.com/maps/search/?api=1&amp;query=RK%20Building%2C%20Purok%20Mauswagon%20Lower%20Taway%2C%20Ipil%2C%20Zamboanga%20Sibugay%2C%20beside%20Kaprehh%20Cafe" target="_blank" rel="noopener">Get directions</a>
+        </article>
+        <article class="loc-card">
+          <h3>Pagadian</h3>
+          <p>Ground Floor of C3 Mall, Rizal Ave., Santiago District (at the back of RRJ, beside Chocolate Delight).</p>
+          <p>Smart <a href="tel:+639295328806">0929-532-8806</a> · Globe <a href="tel:+639668795754">0966-879-5754</a></p>
+          <a class="loc-dir" href="https://www.google.com/maps/search/?api=1&amp;query=C3%20Mall%2C%20Rizal%20Avenue%2C%20Santiago%20District%2C%20Pagadian" target="_blank" rel="noopener">Get directions</a>
+        </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Book a consult -->
   <section class="block contact" id="book">
     <div class="wrap">
       <div class="info">
