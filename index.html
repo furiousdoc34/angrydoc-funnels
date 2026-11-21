@@ -203,6 +203,15 @@ textarea { min-height: 120px; resize: vertical; }
 .msg.err { background: var(--new-bg); color: var(--new); }
 .msg.info { background: var(--info-bg); color: var(--info); }
 
+
+.programs-grid { display: grid; gap: 16px; grid-template-columns: 1fr; margin-top: 22px; }
+@media (min-width: 700px) { .programs-grid { grid-template-columns: 1fr 1fr; } }
+.program-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; display: grid; gap: 8px; text-decoration: none; color: inherit; }
+.program-card:hover { border-color: var(--accent); }
+.program-card .amt { font-family: var(--display); font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+.program-card p { color: var(--muted); font-size: .95rem; }
+.programs-note { margin-top: 16px; color: var(--muted); font-size: .92rem; max-width: 62ch; }
+
 footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--muted); font-size: .9rem; }
 footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
@@ -235,6 +244,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       <a href="#approach" data-site-link>Approach</a>
       <a href="#team" data-site-link>Our Team</a>
       <a href="#locations" data-site-link>Locations</a>
+      <a href="#programs" data-site-link>Programs</a>
       <a href="#book" data-site-link>Book a Consult</a>
     </nav>
   </div>
@@ -593,6 +603,44 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     </div>
   </section>
 
+
+  <!-- Programs & Community (Curzzo) -->
+  <section class="block" id="programs">
+    <div class="wrap">
+      <p class="eyebrow">Programs &amp; Community</p>
+      <h2>Programs &amp; Community</h2>
+      <p class="lede">Home programs and Doc Ron’s private community on Curzzo. The ₱1,500 Guided Home Program add-on is sold only with the ₱500 consult — not on its own.</p>
+      <div class="programs-grid">
+        <a class="program-card" href="https://curzzo.com/communities/doc-ron-concierge-1" target="_blank" rel="noopener">
+          <h3>Doc Ron Concierge</h3>
+          <span class="amt">₱1,500/month</span>
+          <p>Private community. The Concierge course is included with membership.</p>
+        </a>
+        <a class="program-card" href="https://curzzo.com/communities/doc-ron-concierge-1/classroom/courses/345" target="_blank" rel="noopener">
+          <h3>Upper Back Desk Reset</h3>
+          <span class="amt">₱999 one-time</span>
+          <p>Desk, neck, and upper-back program on Curzzo.</p>
+        </a>
+        <a class="program-card" href="https://curzzo.com/communities/doc-ron-concierge-1/classroom/courses/346" target="_blank" rel="noopener">
+          <h3>The Sciatica Reset</h3>
+          <span class="amt">₱5,000 one-time</span>
+          <p>Sciatica home program on Curzzo.</p>
+        </a>
+        <a class="program-card" href="https://curzzo.com/communities/doc-ron-concierge-1/classroom/courses/347" target="_blank" rel="noopener">
+          <h3>Weekly Follow-Along Routines</h3>
+          <span class="amt">₱499/month</span>
+          <p>A new follow-along routine each week.</p>
+        </a>
+        <a class="program-card" href="https://curzzo.com/communities/doc-ron-concierge-1/classroom/courses/348" target="_blank" rel="noopener">
+          <h3>Doc Ron Retainer Program</h3>
+          <span class="amt">₱5,000/month</span>
+          <p>Ongoing guidance with Doc Ron on Curzzo.</p>
+        </a>
+      </div>
+      <p class="programs-note">All sales are final — no refunds. Prefer to talk it through first? <a href="https://askangrydoc.com/book">Book a ₱500 online consult</a> or see the full list on <a href="https://askangrydoc.com/programs">askangrydoc.com/programs</a>.</p>
+    </div>
+  </section>
+
   <!-- 6. Book a consult -->
   <section class="block contact" id="book">
     <div class="wrap">
@@ -627,7 +675,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 <footer>
   <div class="wrap">
     <span>© 2026 Athletic Therapy Center</span>
-    <span>Sports physical therapy</span>
+    <span>Sports physical therapy · <a href="#programs">Programs &amp; Community</a></span>
   </div>
 </footer>
 
